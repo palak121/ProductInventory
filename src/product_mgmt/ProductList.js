@@ -24,32 +24,36 @@ function ProductList({ porducts, loading, modifyClick, delProdClick }) {
     <div className="Add-form">
       <table class="prod_list_table">
         <thead>
-          <tr>
+          <tr className="product_tr">
             {titles.map((titles, key) => (
-              <th key={key}>{titles}</th>
+              <th className="table_header" key={key}>
+                {titles}
+              </th>
             ))}
-            <th colSpan="2" key="action">
+            <th className="table_header" key="action">
               Action
             </th>
           </tr>
         </thead>
         <tbody>
           {porducts.map((items, i) => (
-            <tr key={i}>
+            <tr key={i} className="product_tr">
               {Object.values(porducts[i]).map((value, key) => (
-                <td key={key}>{value}</td>
+                <td className="table_value" key={key}>
+                  {value}
+                </td>
               ))}
-              <td key="modify{i}">
+              <td key="modify" className="table_value">
                 <input
                   type="button"
+                  className="field_btn "
                   onClick={() => modifyClick(items.Id)}
                   key={items.id}
-                  value="modify"
+                  value="Edit"
                 ></input>
-              </td>
-              <td key={i}>
                 <input
                   type="button"
+                  className="field_btn"
                   onClick={() => delProdClick(items.Id)}
                   key={items.id}
                   value="Delete"

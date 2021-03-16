@@ -6,16 +6,18 @@ function Pagination({ productPerPage, totalProduct, paginate }) {
   }
 
   return (
-    <div>
-      {pageNumbers.map((number) => (
-        <input
-          type="button"
-          onClick={() => paginate(number)}
-          href="!#"
-          key={number}
-          value={number}
-        ></input>
-      ))}
+    <div className="pagination_main">
+      {pageNumbers.length > 1
+        ? pageNumbers.map((number) => (
+            <input
+              type="button"
+              onClick={() => paginate(number)}
+              href="!#"
+              key={number}
+              value={number}
+            ></input>
+          ))
+        : ""}
     </div>
   );
 }

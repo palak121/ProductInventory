@@ -119,18 +119,20 @@ class AddProduct extends React.Component {
         onSubmit={this.validate_form.bind(this)}
         onReset={this.formReset.bind(this)}
       >
-        <table>
+        <table className="add_prod_table">
           <thead>
             <tr>
-              <th>Add Product</th>
+              <th className="add_prod_header">Add Product</th>
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>
-                {this.state.errorFlag ? <span>{this.state.errorMsg}</span> : ""}
-              </td>
-            </tr>
+            {this.state.errorFlag ? (
+              <tr>
+                <td>{this.state.errorMsg}</td>
+              </tr>
+            ) : (
+              ""
+            )}
             <tr>
               <td>
                 <div className="field_elem">
@@ -220,7 +222,7 @@ class AddProduct extends React.Component {
               </td>
             </tr>
             <tr>
-              <td>
+              <td className="button_add_form">
                 <input className="field_btn" type="submit" value="Save" />
                 <input className="field_btn" type="reset" value="Cancle" />
                 <input

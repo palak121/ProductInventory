@@ -12,7 +12,7 @@ const MainPage = () => {
   const [loading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const [productPerPage] = useState(7);
-  const [modifyId, setModifyId] = useState("xyz");
+  const [modifyId, setModifyId] = useState("");
   const [prodEdit, setProdEdit] = useState(emptyproduct[0]);
 
   // Change page
@@ -80,7 +80,7 @@ const MainPage = () => {
     filteredProd.slice(indexOfFirstPost, indexOfLastPost) || emptyproduct;
 
   return (
-    <div>
+    <div className="main_container">
       {modifyId !== "xyz" && (
         <AddProduct
           productEdit={prodEdit}
@@ -90,6 +90,19 @@ const MainPage = () => {
       )}
       {modifyId === "xyz" && (
         <div>
+          <div>
+            <div className="product_header">
+              <div className="prod_header">Product</div>
+              <div className="add_prod_btn">
+                <input
+                  type="button"
+                  className="field_btn "
+                  onClick={() => addProdClick()}
+                  value="Add Product"
+                ></input>
+              </div>
+            </div>
+          </div>
           <div className="field_elem">
             <label>
               Name:
@@ -112,11 +125,7 @@ const MainPage = () => {
               />
             </label>
           </div>
-          <input
-            type="button"
-            onClick={() => addProdClick()}
-            value="Add Product"
-          ></input>
+
           <ProductList
             modifyClick={modifyFunc}
             porducts={currentProducts}
