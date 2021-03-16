@@ -9,6 +9,7 @@ class AddProduct extends React.Component {
       errorMsg: "",
       errorFlag: 0,
     });
+    this.astrictElem = <span className="mandatory_elem">*</span>;
     this.emptyProduct = emptyproduct[0];
     this.msgError = ["Please enter valid "];
     this.saveFunction = productEdit.saveFunction;
@@ -24,15 +25,12 @@ class AddProduct extends React.Component {
     for (let i = 0; i < titles.length; i++) {
       this.setState({ [titles[i]]: this.prodDetails[titles[i]] });
     }
-
     this.msgError = ["Please enter valid "];
-    console.log(this.state);
   }
   componentDidMount() {
     this.updatecomponent();
   }
   componentWillReceiveProps(nextProps) {
-    console.log("asdqwe" + nextProps);
     this.prodDetails = nextProps.productEdit;
     this.updatecomponent();
   }
@@ -42,7 +40,6 @@ class AddProduct extends React.Component {
   }
 
   formReset = (e) => {
-    console.log(this.emptyProduct);
     e.target.reset();
     this.prodDetails = this.emptyProduct;
     this.updatecomponent();
@@ -69,7 +66,6 @@ class AddProduct extends React.Component {
       delete prodDetail["errorFlag"];
       this.saveFunction(prodDetail.Id, prodDetail);
     }
-    console.log(this.state);
   };
   field_validator(elemValue, elemName) {
     switch (elemName) {
@@ -127,7 +123,7 @@ class AddProduct extends React.Component {
           <tbody>
             {this.state.errorFlag ? (
               <tr>
-                <td>{this.state.errorMsg}</td>
+                <td className="error_msg">{this.state.errorMsg}</td>
               </tr>
             ) : (
               ""
@@ -136,7 +132,7 @@ class AddProduct extends React.Component {
               <td>
                 <div className="field_elem">
                   <label>
-                    Name:
+                    Name{this.astrictElem}:
                     <input
                       type="text"
                       name="Name"
@@ -148,7 +144,7 @@ class AddProduct extends React.Component {
                 </div>
                 <div className="field_elem">
                   <label>
-                    HSN Code:
+                    HSN Code{this.astrictElem}:
                     <input
                       type="text"
                       name="hsn"
@@ -160,7 +156,7 @@ class AddProduct extends React.Component {
                 </div>
                 <div className="field_elem">
                   <label>
-                    Display Unit:
+                    Display Unit{this.astrictElem}:
                     <input
                       type="text"
                       name="unit"
@@ -172,7 +168,7 @@ class AddProduct extends React.Component {
                 </div>
                 <div className="field_elem">
                   <label>
-                    Tax:
+                    Tax{this.astrictElem}:
                     <input
                       type="number"
                       name="tax"
@@ -184,7 +180,7 @@ class AddProduct extends React.Component {
                 </div>
                 <div className="field_elem">
                   <label>
-                    Price :
+                    Price{this.astrictElem}:
                     <input
                       type="number"
                       name="price"
@@ -223,7 +219,7 @@ class AddProduct extends React.Component {
             <tr>
               <td className="button_add_form">
                 <input className="field_btn" type="submit" value="Save" />
-                <input className="field_btn" type="reset" value="Cancle" />
+                <input className="field_btn" type="reset" value="Cancel" />
                 <input
                   className="field_btn"
                   type="button"

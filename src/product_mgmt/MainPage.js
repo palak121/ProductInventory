@@ -20,7 +20,6 @@ const MainPage = () => {
   const modifyFunc = (prodId) => {
     setModifyId(prodId);
     setProdEdit(products.find((item) => item.Id === prodId));
-    console.log(prodEdit);
   };
   const saveFunction = (prodId, prodDetail) => {
     let itemId = products.findIndex((item) => item.Id === prodId);
@@ -38,12 +37,11 @@ const MainPage = () => {
     setModifyId(emptyproduct[0].Id);
   };
   const addProdClick = () => {
-    setModifyId(products.length);
+    setModifyId(products?.length || 0);
   };
   const delProdClick = (prodId) => {
-    let itemId = products.findIndex((item) => item.Id === prodId);
+    let itemId = products?.findIndex((item) => item.Id === prodId) || 0;
     products.splice(itemId, 1);
-    setModifyId(emptyproduct[0].Id);
     setProdEdit(emptyproduct[0]);
     localStorage.setItem("Products", JSON.stringify(products));
     setProducts(JSON.parse(localStorage.getItem("Products")));
@@ -71,7 +69,7 @@ const MainPage = () => {
   const indexOfLastPost = currentPage * productPerPage;
   const indexOfFirstPost = indexOfLastPost - productPerPage;
   const currentProducts =
-    filteredProd.slice(indexOfFirstPost, indexOfLastPost) || emptyproduct;
+    filteredProd?.slice(indexOfFirstPost, indexOfLastPost) || [];
 
   return (
     <div className="main_container">
@@ -129,7 +127,8 @@ const MainPage = () => {
           <Pagination
             paginate={paginate}
             productPerPage={productPerPage}
-            totalProduct={filteredProd.length}
+            totalProduct={filteredProd?.length || 0}
+            currentPage={currentPage}
           />
         </div>
       )}

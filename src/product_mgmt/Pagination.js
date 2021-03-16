@@ -1,4 +1,4 @@
-function Pagination({ productPerPage, totalProduct, paginate }) {
+function Pagination({ productPerPage, totalProduct, paginate, currentPage }) {
   const pageNumbers = [];
 
   for (let i = 1; i <= Math.ceil(totalProduct / productPerPage); i++) {
@@ -11,6 +11,7 @@ function Pagination({ productPerPage, totalProduct, paginate }) {
         ? pageNumbers.map((number) => (
             <input
               type="button"
+              className={currentPage == number ? "selected_page" : "deselected"}
               onClick={() => paginate(number)}
               href="!#"
               key={number}

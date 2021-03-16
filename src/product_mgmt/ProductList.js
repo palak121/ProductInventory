@@ -31,14 +31,14 @@ function ProductList({ porducts, loading, modifyClick, delProdClick }) {
               <td key="modify" className="table_value">
                 <input
                   type="button"
-                  className="field_btn "
+                  className=" table_btn"
                   onClick={() => modifyClick(items.Id)}
                   key={items.id}
                   value="Edit"
                 ></input>
                 <input
                   type="button"
-                  className="field_btn"
+                  className=" table_btn"
                   onClick={() => delProdClick(items.Id)}
                   key={items.id}
                   value="Delete"
