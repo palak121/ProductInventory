@@ -19,14 +19,8 @@ const MainPage = () => {
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
   const modifyFunc = (prodId) => {
     setModifyId(prodId);
-    // let item = document.getElementById("addProdForm");
-    // item?.parentNode?.removeChild(item);
     setProdEdit(products.find((item) => item.Id === prodId));
     console.log(prodEdit);
-    // const titles = Object.keys(prodEdit);
-    // for (let i = 1; i < titles.length; i++) {
-    //   AddProduct.setState({ [titles[i]]: prodEdit[titles[i]] });
-    // }
   };
   const saveFunction = (prodId, prodDetail) => {
     let itemId = products.findIndex((item) => item.Id === prodId);

@@ -46,7 +46,6 @@ class AddProduct extends React.Component {
     e.target.reset();
     this.prodDetails = this.emptyProduct;
     this.updatecomponent();
-    // this.myFormRef.reset();
     e.preventDefault();
   };
   validate_form = (event) => {

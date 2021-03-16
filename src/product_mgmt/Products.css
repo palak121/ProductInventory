@@ -12,7 +12,7 @@
   margin: 10px;
 }
 .main_container {
-    width: max-content;
+  width: max-content;
   border: 1px solid black;
   margin: 20px;
   box-shadow: 0px 0px 15px -4px;
@@ -35,26 +35,26 @@
   margin: 4px 2px;
   cursor: pointer;
 }
-.table_value{
-    text-align: center;
-    border: 1px solid black;
-    padding: 5px;
+.table_value {
+  text-align: center;
+  border: 1px solid black;
+  padding: 5px;
 }
-.add_prod_btn{   
-    width: 50%; 
-    text-align: right;
-    display: inline-block;
+.add_prod_btn {
+  width: 50%;
+  text-align: right;
+  display: inline-block;
 }
-.product_header{
-    text-align: right;padding: 5px 20px;
-    background-color:#2a5b98;
-    color: white;
-    
+.product_header {
+  text-align: right;
+  padding: 5px 20px;
+  background-color: #2a5b98;
+  color: white;
 }
-.prod_header{
-    width: 50%;
-    text-align: left;
-    display: inline-block;
+.prod_header {
+  width: 50%;
+  text-align: left;
+  display: inline-block;
 }
 @media only screen and (max-width: 1024px) {
   /* For tab : */
@@ -68,20 +68,19 @@
     width: 80%;
   }
 }
-.add_prod_table{
-    border-collapse: collapse;
+.add_prod_table {
+  border-collapse: collapse;
 }
-.add_prod_header{
-    background-color:#2a5b98;
-    color: white;
-    text-align: left;
-    padding: 5px 20px ;
+.add_prod_header {
+  background-color: #2a5b98;
+  color: white;
+  text-align: left;
+  padding: 5px 20px;
 }
-.button_add_form{
-    padding: 10px 20px;
+.button_add_form {
+  padding: 10px 20px;
 }
-.pagination_main{
-    text-align: right;
-    padding: 5px 20px;
+.pagination_main {
+  text-align: right;
+  padding: 5px 20px;
 }
-
